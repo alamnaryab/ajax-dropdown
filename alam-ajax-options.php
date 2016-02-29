@@ -36,10 +36,11 @@
 	$res = $db->query($q);
 	if($res){
 		$row = array();
+		echo '<ul>';
 		while($r = $res->fetch_assoc()){
-			$row[] = $r;
+			echo '<li data-id="'.$r['id'].'">'.$r['title'].'</li>';
 		}
-		echo json_encode($row);
+		echo '</ul>';
 	}else{
 		echo "Error executing query";	
 	}

@@ -52,7 +52,7 @@
 				$(".alam-ajax-dropdown-wrapper").hide();
 				var myData = {};
 				if(opt.filterBy!=false){
-					myData[opt.filterBy]=el.val();
+					myData[opt.filterBy]=el.val().trim();
 				}
 				$.ajax({
 					url:opt.source,
@@ -62,21 +62,23 @@
 						drp.show().html('<img alt="Loading..." src="loading.gif" />');	
 					},
 					success:function(data){
-						var obj = $.parseJSON(data);
-						console.log(obj);
-						if(obj.length){
-							var ul = '<ul>';
-							
-							$.each(obj, function(i, item) {
-								console.log(item);
-								ul += ' <li data-id="'+item[opt.jsonOptions.value]+'">';
-								ul += item[opt.jsonOptions.text];
-								ul += ' </li>';
-							});
-							ul += ' </ul>';
-							drp.html(ul);	
+						if(opt.htmlOptions!=false){
+							drp.html(data);
 						}else{
-							drp.html('<div style="text-align:center;">No match found.</span>');
+							var obj = $.parseJSON(data);
+							if(obj.length){
+								var ul = '<ul>';
+								$.each(obj, function(i, item) {
+									console.log(item);
+									ul += ' <li data-id="'+item[opt.jsonOptions.value]+'">';
+									ul += item[opt.jsonOptions.text];
+									ul += ' </li>';
+								});
+								ul += ' </ul>';
+								drp.html(ul);	
+							}else{
+								drp.html('<div style="text-align:center;">No match found.</span>');
+							}
 						}
 					},
 					error: function (jqXHR, exception) {

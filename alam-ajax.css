@@ -1,3 +1,4 @@
+/*gray wrapper*/
 .alam-ajax-wrapper{
 	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
 	width:80%;
@@ -5,11 +6,11 @@
 	border:1px solid #ddd;
 	background:#eee;	
 	margin:130px auto;
-}
-.alam-ajax-wrapper{
 	position:relative;
 }
+/*dropdown container*/
 .alam-ajax-dropdown-wrapper{
+	z-index:111;
 	position:absolute;
 	display:none;
 	width:624px;
@@ -20,6 +21,7 @@
 	border:1px solid #CCC;
 	box-shadow:2px 2px 4px #888,-2px 2px 4px #888;
 }
+
 .alam-ajax-dropdown-wrapper ul{
 	margin:0px;
 	padding:0px;
@@ -34,6 +36,8 @@
 	background:#06F;
 	color:#FFF;
 }
+
+/*textbox styling*/
 .form-control {
 	font-weight:bold;
 	font-size:18px;
