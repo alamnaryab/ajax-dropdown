@@ -33,6 +33,10 @@
 			
         });
 		
+		$('body').bind("click", function (e) {
+			$(".alam-ajax-dropdown-wrapper").hide();
+		});
+		
 		$(".alam-ajax-dropdown-wrapper").on("click"," ul li",function(){
 			var parentDrp = $(this).parents(".alam-ajax-wrapper");
 			parentDrp.find("input[type=text]").val($(this).html());
